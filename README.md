@@ -1,66 +1,117 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# skateMap
+**A map to help riders to discover skate spots all around the world**
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## application de gestion des spots de skate
 
-## About Laravel
+### 1. Analyse des besoins
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Fonctionnalités principales :**
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. Gestion des utilisateurs :
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Inscription et connexion (avec rôles : utilisateur, administrateur).
 
-## Learning Laravel
+- Profil utilisateur (nom, localisation, photo de profil, etc.).
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+ ### 2. Gestion des spots de skate :
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Ajout d'un spot avec description, photos, type de spot et localisation.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Consultation des spots par ville ou quartier.
 
-## Laravel Sponsors
+- Filtrage des spots par type (slappy, curbs, ledges, etc.).
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- Validation des spots par un administrateur avant publication.
 
-### Premium Partners
+### 3. Carte interactive :
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- Affichage des spots sur une carte.
 
-## Contributing
+- Recherche et visualisation des spots par position géographique.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 4. Interactions sociales :
 
-## Code of Conduct
+- Possibilité de laisser des avis/commentaires sur les spots.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- Notation des spots.
 
-## Security Vulnerabilities
+### 5. Administration :
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- Gestion des utilisateurs et des contenus (spots, commentaires, médias).
 
-## License
+### Types d'utilisateurs :
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. Utilisateur classique :
+
+- Peut consulter les spots, ajouter des spots, et interagir (commentaires, notes).
+
+2. Administrateur :
+
+- Peut modérer les contenus et gérer les utilisateurs.
+
+## Schéma de base de données
+
+![alt text](image.png)
+
+### Explications :
+
+- User : Table pour les utilisateurs.
+
+- Spot : Représente les spots de skate. Les champs incluent :
+
+    - isValidated : indique si le spot a été validé par un administrateur.
+
+- SpotType : Catégories de spots (slappy, curbs, etc.).
+
+- Comment : Commentaires liés aux spots.
+
+- Media : Photos ou vidéos associées aux spots.
+
+### Relations clés :
+
+- Un utilisateur peut ajouter plusieurs spots.
+
+- Chaque spot peut avoir plusieurs images (Media).
+
+- Un utilisateur peut commenter plusieurs spots.
+
+- Un commentaire appartient à un seul spot.
+
+- Un administrateur valide les spots avant leur publication.
+
+## 3. Diagramme des cas d'utilisation (Use Case)
+
+- [Utilisateur] --> (Consulter des spots)
+- [Utilisateur] --> (Ajouter un spot)
+- [Utilisateur] --> (Commenter un spot)
+- [Utilisateur] --> (Noter un spot)
+
+![alt text](image-2.png)
+
+- [Administrateur] --> (Valider un spot)
+- [Administrateur] --> (Modérer les commentaires)
+- [Administrateur] --> (Gérer les utilisateurs)
+
+![alt text](image-1.png)
+
+## 4. Diagramme d’activité
+
+### Ajout d’un spot :
+
+- L'utilisateur remplit un formulaire (nom, description, photos, type, localisation).
+- Les données sont envoyées au serveur.
+- Le spot est marqué comme "en attente de validation".
+- Un administrateur valide ou rejette le spot.
+- Si validé, le spot est affiché sur la carte.
+- Validation d’un spot par l’administrateur :
+- L’administrateur consulte la liste des spots en attente.
+- Il approuve ou rejette chaque spot.
+- Les spots validés deviennent visibles pour tous les utilisateurs.
+
+![alt text](image-3.png)
+
+## 5. Diagramme de classe
+
+![alt text](image-5.png)
+
+## 6. Diagramme sémantique
