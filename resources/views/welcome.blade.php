@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel</title>
+    <title>Smapper</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -33,7 +33,7 @@
     <!-- Barre de navigation -->
     <nav class="container-fluid">
         <ul>
-            <li><strong>Laravel</strong></li>
+            <li><strong>Smapper</strong></li>
         </ul>
         <ul>
             @auth
