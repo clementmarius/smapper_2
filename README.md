@@ -51,7 +51,7 @@
 
 ## Schéma de base de données
 
-![alt text](image-5.png)
+![alt text](image.png)
 
 ### Explications :
 
@@ -86,13 +86,13 @@
 - [Utilisateur] --> (Commenter un spot)
 - [Utilisateur] --> (Noter un spot)
 
-![alt text](image-8.png)
+![alt text](image-1.png)
 
 - [Administrateur] --> (Valider un spot)
 - [Administrateur] --> (Modérer les commentaires)
 - [Administrateur] --> (Gérer les utilisateurs)
 
-![alt text](image-4.png)
+![alt text](image-2.png)
 
 ## 4. Diagramme d’activité
 
@@ -108,10 +108,10 @@
 - Il approuve ou rejette chaque spot.
 - Les spots validés deviennent visibles pour tous les utilisateurs.
 
-![alt text](image-10.png)
+![alt text](image-3.png)
 
 ## 5. Diagramme de classe
 
-![alt text](image-9.png)
+![alt text](image-4.png)
 
 ## 6. Diagramme sémantique
